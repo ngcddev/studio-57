@@ -1,9 +1,66 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$protocol  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$base_url  = $protocol . '://' . $_SERVER['HTTP_HOST'];
+$canonical = $base_url . '/index.php';
+$og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200×630
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio 57</title>
+  <title>Studio 57 — Ropa hombre y mujer hecha en Colombia | Popayán</title>
+  <meta name="description" content="Tienda de ropa Studio 57 en Popayán. Prendas de carácter para hombre y mujer: camisetas, denim, punto y sastre. Series cortas, tejidas en Colombia.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="<?= $canonical ?>">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type"         content="website">
+  <meta property="og:site_name"    content="Studio 57">
+  <meta property="og:url"          content="<?= $canonical ?>">
+  <meta property="og:title"        content="Studio 57 — Ropa hombre y mujer hecha en Colombia">
+  <meta property="og:description"  content="Prendas de carácter para hombre y mujer. Series cortas, tejidas en Colombia, pensadas para durar.">
+  <meta property="og:image"        content="<?= $og_image ?>">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Studio 57 — Ropa hecha en Colombia">
+  <meta name="twitter:description" content="Prendas de carácter para hombre y mujer. Series cortas, tejidas en Colombia, pensadas para durar.">
+  <meta name="twitter:image"       content="<?= $og_image ?>">
+
+  <!-- Schema: WebSite + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Studio 57",
+        "url": "<?= $base_url ?>",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "<?= $base_url ?>/catalog.php?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "Studio 57",
+        "url": "<?= $base_url ?>",
+        "logo": "<?= $og_image ?>",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Popayán",
+          "addressRegion": "Cauca",
+          "addressCountry": "CO"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -119,6 +176,13 @@
   <footer>
     <div class="container">
       <span class="footer-brand">Studio 57</span>
+      <nav class="footer-nav" aria-label="Navegación del pie">
+        <a href="catalog.php">Catálogo</a>
+        <a href="catalog.php?gender=hombre">Hombre</a>
+        <a href="catalog.php?gender=mujer">Mujer</a>
+        <a href="cart.php">Carrito</a>
+        <a href="auth.php">Mi cuenta</a>
+      </nav>
       <span>© 2026 Studio 57 — Popayán, Colombia</span>
     </div>
   </footer>

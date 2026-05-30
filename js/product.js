@@ -1,4 +1,66 @@
-﻿document.addEventListener('DOMContentLoaded', async () => {
+﻿function _updateProductMeta(product) {
+  const url = window.location.origin + '/product.php?id=' + product.id;
+  const desc = (product.short_desc || product.description || '').slice(0, 160);
+  const title = product.name + ' — Studio 57';
+
+  document.title = title;
+  document.getElementById('canonical-url')?.setAttribute('href', url);
+  document.getElementById('meta-description')?.setAttribute('content', desc);
+  document.getElementById('og-url')?.setAttribute('content', url);
+  document.getElementById('og-title')?.setAttribute('content', title);
+  document.getElementById('og-description')?.setAttribute('content', desc);
+  document.getElementById('twitter-title')?.setAttribute('content', title);
+  if (product.image_url) {
+    document.getElementById('og-image')?.setAttribute('content', product.image_url);
+    document.getElementById('twitter-image')?.setAttribute('content', product.image_url);
+  }
+}
+
+function _injectProductSchema(product, variants) {
+  const url  = window.location.origin + '/product.php?id=' + product.id;
+  const inStock = product.stock > 0 || variants.some(v => v.stock > 0);
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Product',
+        name: product.name,
+        description: product.description || product.short_desc || '',
+        image: product.image_url || '',
+        sku: String(product.id),
+        brand: { '@type': 'Brand', name: 'Studio 57' },
+        category: product.category || '',
+        offers: {
+          '@type': 'Offer',
+          url,
+          priceCurrency: 'COP',
+          price: product.price,
+          availability: inStock
+            ? 'https://schema.org/InStock'
+            : 'https://schema.org/OutOfStock',
+          seller: { '@type': 'Organization', name: 'Studio 57' },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Inicio',   item: window.location.origin + '/index.php' },
+          { '@type': 'ListItem', position: 2, name: 'Catálogo', item: window.location.origin + '/catalog.php' },
+          { '@type': 'ListItem', position: 3, name: product.category, item: window.location.origin + '/catalog.php?gender=' + (product.gender || '') },
+          { '@type': 'ListItem', position: 4, name: product.name, item: url },
+        ],
+      },
+    ],
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('product-detail');
   const id        = getQueryParam('id');
 
@@ -20,7 +82,18 @@
     return;
   }
 
-  document.title = product.name + ' – Studio 57';
+  _updateProductMeta(product);
+  _injectProductSchema(product, variants);
+
+  const breadcrumb = document.getElementById('product-breadcrumb');
+  if (breadcrumb) {
+    const catUrl = 'catalog.php' + (product.gender ? '?gender=' + encodeURIComponent(product.gender) : '');
+    breadcrumb.innerHTML =
+      `<a href="index.php">Inicio</a> › ` +
+      `<a href="catalog.php">Catálogo</a> › ` +
+      `<a href="${catUrl}">${product.category}</a> › ` +
+      `<span>${product.name}</span>`;
+  }
 
   const colors = [...new Set(variants.filter(v => v.color).map(v => v.color))];
   const sizes  = [...new Set(variants.filter(v => v.size).map(v => v.size))];
@@ -55,7 +128,7 @@
 
   container.innerHTML = `
     <div class="detail-image">
-      <img src="${product.image_url}" alt="${product.name}">
+      <img src="${product.image_url}" alt="${product.name}" width="600" height="750" fetchpriority="high">
     </div>
     <div class="detail-info">
       <span class="category-tag">${product.category}</span>

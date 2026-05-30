@@ -1,9 +1,16 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nueva contraseña – Studio 57</title>
+  <title>Nueva contraseña — Studio 57</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="<?= $base_url ?>/reset-password.php">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

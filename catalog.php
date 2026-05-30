@@ -1,9 +1,46 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
+$gender   = in_array($_GET['gender'] ?? '', ['hombre', 'mujer']) ? $_GET['gender'] : '';
+
+$titles = [
+  'hombre' => 'Ropa Hombre — Studio 57 | Camisetas, Denim y Abrigo Colombia',
+  'mujer'  => 'Ropa Mujer — Studio 57 | Punto, Sastre y Vestidos Colombia',
+  ''       => 'Catálogo — Studio 57 | Ropa hombre y mujer hecha en Colombia',
+];
+$descs = [
+  'hombre' => 'Explora la colección de ropa para hombre de Studio 57. Camisetas, denim, abrigo y más, hechos en Colombia. Series cortas, prendas de carácter.',
+  'mujer'  => 'Descubre la colección de ropa para mujer de Studio 57. Punto, sastre, vestidos y más, tejidos en Colombia. Series cortas, prendas de carácter.',
+  ''       => 'Explora el catálogo completo de Studio 57. Ropa de autor para hombre y mujer hecha en Colombia. Denim, punto, camisetas y sastre de serie corta.',
+];
+$page_title = $titles[$gender];
+$page_desc  = $descs[$gender];
+$canonical  = $base_url . '/catalog.php' . ($gender ? '?gender=' . $gender : '');
+$og_image   = $base_url . '/assets/og-cover.jpg';
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo – Studio 57</title>
+  <title><?= htmlspecialchars($page_title) ?></title>
+  <meta name="description" content="<?= htmlspecialchars($page_desc) ?>">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="<?= htmlspecialchars($canonical) ?>">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type"         content="website">
+  <meta property="og:site_name"    content="Studio 57">
+  <meta property="og:url"          content="<?= htmlspecialchars($canonical) ?>">
+  <meta property="og:title"        content="<?= htmlspecialchars($page_title) ?>">
+  <meta property="og:description"  content="<?= htmlspecialchars($page_desc) ?>">
+  <meta property="og:image"        content="<?= $og_image ?>">
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="<?= htmlspecialchars($page_title) ?>">
+  <meta name="twitter:image"       content="<?= $og_image ?>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,8 +79,13 @@
   </div>
 
   <main class="container catalog-section">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="index.php">Inicio</a> ›
+      <a href="catalog.php">Catálogo</a><?php if ($gender): ?> ›
+      <span><?= $gender === 'hombre' ? 'Hombre' : 'Mujer' ?></span><?php endif; ?>
+    </nav>
     <div class="catalog-header">
-      <h1 id="catalog-title">Todo</h1>
+      <h1 id="catalog-title"><?= $gender ? ($gender === 'hombre' ? 'Hombre' : 'Mujer') : 'Todo' ?></h1>
     </div>
     <div class="catalog-controls">
       <span id="catalog-count" class="catalog-count"></span>
@@ -63,6 +105,13 @@
   <footer>
     <div class="container">
       <span class="footer-brand">Studio 57</span>
+      <nav class="footer-nav" aria-label="Navegación del pie">
+        <a href="index.php">Inicio</a>
+        <a href="catalog.php">Todo</a>
+        <a href="catalog.php?gender=hombre">Hombre</a>
+        <a href="catalog.php?gender=mujer">Mujer</a>
+        <a href="cart.php">Carrito</a>
+      </nav>
       <span>© 2026 Studio 57 — Popayán, Colombia</span>
     </div>
   </footer>

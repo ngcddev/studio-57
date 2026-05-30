@@ -1,9 +1,33 @@
-﻿<!DOCTYPE html>
+﻿<?php
+$protocol   = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$base_url   = $protocol . '://' . $_SERVER['HTTP_HOST'];
+$product_id = preg_replace('/[^a-zA-Z0-9\-]/', '', $_GET['id'] ?? '');
+$canonical  = $base_url . '/product.php' . ($product_id ? '?id=' . $product_id : '');
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Producto – Studio 57</title>
+  <!-- JS actualiza title, description y OG una vez que carga el producto desde Supabase -->
+  <title>Producto — Studio 57</title>
+  <meta name="description" id="meta-description" content="Ropa de autor Studio 57 hecha en Colombia. Prendas de carácter, series cortas, tejidas en Popayán.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" id="canonical-url" href="<?= $canonical ?>">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Open Graph (valores actualizados por JS) -->
+  <meta property="og:type"         content="product">
+  <meta property="og:site_name"    content="Studio 57">
+  <meta property="og:url"          id="og-url"         content="<?= $canonical ?>">
+  <meta property="og:title"        id="og-title"        content="Producto — Studio 57">
+  <meta property="og:description"  id="og-description"  content="Ropa de autor Studio 57 hecha en Colombia.">
+  <meta property="og:image"        id="og-image"        content="">
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       id="twitter-title"   content="Producto — Studio 57">
+  <meta name="twitter:image"       id="twitter-image"   content="">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,6 +66,7 @@
   </div>
 
   <main class="container">
+    <nav class="breadcrumb" id="product-breadcrumb" aria-label="Ruta de navegación"></nav>
     <div id="product-detail" class="product-detail"></div>
   </main>
 
@@ -53,6 +78,13 @@
   <footer>
     <div class="container">
       <span class="footer-brand">Studio 57</span>
+      <nav class="footer-nav" aria-label="Navegación del pie">
+        <a href="index.php">Inicio</a>
+        <a href="catalog.php">Catálogo</a>
+        <a href="catalog.php?gender=hombre">Hombre</a>
+        <a href="catalog.php?gender=mujer">Mujer</a>
+        <a href="cart.php">Carrito</a>
+      </nav>
       <span>© 2026 Studio 57 — Popayán, Colombia</span>
     </div>
   </footer>
