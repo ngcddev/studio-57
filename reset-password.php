@@ -5,6 +5,7 @@ $base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nueva contraseña — Studio 57</title>
@@ -19,6 +20,7 @@ $base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
 </head>
 <body>
   <header class="site-header">
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
     <nav class="header-left"></nav>
     <a href="index.php" class="header-brand">Studio 57</a>
     <div class="header-right"></div>

@@ -7,6 +7,7 @@ $canonical  = $base_url . '/product.php' . ($product_id ? '?id=' . $product_id :
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- JS actualiza title, description y OG una vez que carga el producto desde Supabase -->
@@ -37,6 +38,7 @@ $canonical  = $base_url . '/product.php' . ($product_id ? '?id=' . $product_id :
 <body>
 
   <header class="site-header">
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
     <nav class="header-left">
       <a href="catalog.php"               class="nav-cat" data-gender="">Todo</a>
       <a href="catalog.php?gender=hombre" class="nav-cat" data-gender="hombre">Hombre</a>

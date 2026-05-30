@@ -7,6 +7,7 @@ $og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio 57 — Ropa hombre y mujer hecha en Colombia | Popayán</title>
@@ -70,6 +71,7 @@ $og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200
 <body>
 
   <header class="site-header">
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
     <nav class="header-left">
       <a href="catalog.php"               class="nav-cat" data-gender="">Todo</a>
       <a href="catalog.php?gender=hombre" class="nav-cat" data-gender="hombre">Hombre</a>
