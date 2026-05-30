@@ -1,0 +1,245 @@
+/* ============================================================
+   STUDIO 57 — auth, perfil, wishlist, pedidos
+   ============================================================ */
+
+/* ── Auth ───────────────────────────────────────────────────── */
+.auth-page {
+  min-height: calc(100vh - 65px);
+  display: grid;
+  place-items: center;
+  padding: 56px 18px 90px;
+  background: var(--bg);
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 416px;
+}
+.auth-box-brand {
+  font-family: var(--display);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+.auth-box-tag {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 13px;
+  margin: 0 0 30px;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 26px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 13px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color .2s, border-color .2s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+.auth-tab.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+  font-weight: 500;
+}
+
+.auth-error {
+  color: var(--danger);
+  font-size: 13px;
+  margin-top: .5rem;
+  min-height: 1.2em;
+}
+.auth-success {
+  color: var(--success);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 14px;
+}
+.auth-success a { color: var(--ink); text-decoration: underline; }
+
+.auth-page .btn-primary { margin-top: 8px; width: 100%; }
+
+.auth-link {
+  display: inline-block;
+  color: var(--ink-2);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 14px;
+  transition: color .2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.auth-link:hover { color: var(--ink); }
+
+.auth-foot { text-align: center; margin-top: 18px; }
+
+/* ── Reset password ──────────────────────────────────────────── */
+.reset-page {
+  min-height: calc(100vh - 65px);
+  display: grid;
+  place-items: center;
+  padding: 56px 18px 90px;
+}
+
+/* ── Perfil ──────────────────────────────────────────────────── */
+.profile-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: clamp(22px, 3vw, 40px) 0 90px;
+}
+
+.profile-page > h1 {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  margin-bottom: 6px;
+}
+.profile-greeting {
+  color: var(--ink-3);
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.profile-section {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--paper);
+  padding: clamp(20px, 3vw, 30px);
+  margin-bottom: 16px;
+}
+.profile-section h2 {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  margin: 0 0 18px;
+  font-weight: 700;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: 0 0 18px;
+  letter-spacing: 0.02em;
+}
+
+.profile-status {
+  font-size: 13px;
+  margin-top: 14px;
+  min-height: 1.2em;
+}
+.profile-status.ok { color: var(--success); }
+.profile-status.error { color: var(--danger); }
+
+/* ── Historial de pedidos ────────────────────────────────────── */
+.order-card {
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+}
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.order-card-id {
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.order-card-meta {
+  color: var(--ink-3);
+  font-size: 13px;
+  margin: 10px 0 12px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.order-card-meta b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+.order-card-items {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  list-style: none;
+}
+.order-status {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.order-status.recibido   { background: rgba(45,90,160,.13);  color: #2d5aa0; }
+.order-status.procesando { background: rgba(190,120,30,.16); color: #976713; }
+.order-status.enviado    { background: rgba(110,70,150,.15); color: #6e4696; }
+.order-status.entregado  { background: rgba(63,107,74,.16);  color: var(--success); }
+.order-status.cancelado  { background: rgba(178,59,43,.12);  color: var(--danger); }
+
+/* ── Wishlist en perfil ──────────────────────────────────────── */
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(146px, 1fr));
+  gap: 14px;
+}
+.wish-card { cursor: pointer; }
+.wish-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  background: var(--bg-2);
+}
+.wish-name { font-size: 13px; font-weight: 500; line-height: 1.25; color: var(--ink); }
+.wish-price {
+  font-size: 12px;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+.btn-remove-wish {
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--danger);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity .2s;
+}
+.btn-remove-wish:hover { opacity: .6; }
+
+.profile-empty { color: var(--ink-3); font-size: 14px; padding: 14px 0; }
