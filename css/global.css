@@ -598,6 +598,11 @@ footer {
 
 /* ── Hero ───────────────────────────────────────────────────── */
 @media (max-width: 480px) {
+  .hero { overflow: hidden; }
+  .hero-type {
+    font-size: clamp(26px, 8.5vw, 44px);
+    letter-spacing: 0.01em;
+  }
   .hero-sub {
     flex-direction: column;
     align-items: flex-start;
@@ -613,7 +618,14 @@ footer {
 /* ── Secciones ──────────────────────────────────────────────── */
 @media (max-width: 480px) {
   .sec { padding: 28px 0; }
-  .sec-hd { margin-bottom: 16px; gap: 12px; }
+  .sec-hd {
+    margin-bottom: 16px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .sec-hd h2 { font-size: 20px; }
+  .sec-hd .sec-all { white-space: nowrap; flex-shrink: 0; font-size: 11px; }
 }
 
 /* ── Footer ─────────────────────────────────────────────────── */

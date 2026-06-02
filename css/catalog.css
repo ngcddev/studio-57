@@ -440,6 +440,12 @@
     gap: 2px;
     padding-top: 20px;
   }
+  /* 5ª card sola: centrarla */
+  .product-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 1px);
+    justify-self: center;
+  }
   .card-body { padding: 10px 2px 18px; gap: 3px; }
   .card-body h3 { font-size: 14px; }
   .card-body p { font-size: 12px; display: none; }
