@@ -398,3 +398,56 @@
   min-width: 180px;
   text-align: center;
 }
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  /* ── Carrito ──────────────────────────────────────────────── */
+  .cart-section { padding: 20px 0 60px; }
+  .cart-page-title { font-size: 34px; }
+
+  .cart-item {
+    grid-template-columns: 72px 1fr;
+    gap: 10px;
+    padding: 16px 0;
+  }
+  .cart-item > img { width: 72px; height: 88px; }
+  .cart-item-qty,
+  .cart-item-subtotal,
+  .btn-remove { grid-column: 2; }
+  .cart-item-qty { margin-top: 6px; }
+  .cart-item-subtotal { font-size: 14px; margin-top: 4px; }
+  .btn-remove { margin-top: 2px; }
+
+  .cart-summary-box { padding: 18px; }
+  .summary-total-value { font-size: 22px; }
+
+  /* ── Checkout ─────────────────────────────────────────────── */
+  .checkout-section { padding-bottom: 60px; }
+  .checkout-steps { gap: 8px; padding-bottom: 20px; }
+  .step { font-size: 11px; gap: 6px; }
+  .step .step-num { width: 22px; height: 22px; font-size: 11px; }
+
+  .card-row { grid-template-columns: 1fr; gap: 0; }
+
+  .co-summary { padding: 18px; }
+  .co-summary h2 { font-size: 11px; }
+  .summary-total-row strong { font-size: 20px; }
+
+  /* ── Confirmación ─────────────────────────────────────────── */
+  .confirmation-box {
+    padding: 24px 18px;
+    margin: 8px 0 60px;
+  }
+  .confirmation-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .confirmation-actions .btn-primary,
+  .confirmation-actions .btn-secondary {
+    min-width: unset;
+    width: 100%;
+  }
+}

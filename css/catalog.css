@@ -415,3 +415,52 @@
   letter-spacing: 0.01em;
   margin-bottom: 24px;
 }
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+/* ── Catálogo cabecera y controles ──────────────────────────── */
+@media (max-width: 600px) {
+  .catalog-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 0;
+  }
+  .catalog-selects { width: 100%; }
+  .catalog-selects select { flex: 1; min-width: 0; }
+  #catalog-count { order: -1; }
+}
+
+/* ── Grid de productos ──────────────────────────────────────── */
+@media (max-width: 540px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    padding-top: 20px;
+  }
+  .card-body { padding: 10px 2px 18px; gap: 3px; }
+  .card-body h3 { font-size: 14px; }
+  .card-body p { font-size: 12px; display: none; }
+  .card-body strong { font-size: 13px; }
+  .btn-add-cart { font-size: 10px; padding: 9px 6px; letter-spacing: 0.06em; }
+  .card-actions { margin-top: 6px; }
+}
+
+/* ── Detalle de producto ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .product-detail {
+    gap: 20px;
+    padding-top: 16px;
+  }
+  .detail-info h1 { font-size: 26px; margin: 10px 0 12px; }
+  .detail-price { font-size: 22px; margin-bottom: 18px; }
+  .detail-actions { flex-wrap: wrap; gap: 8px; }
+  .detail-actions .btn-primary { flex: 1 0 100%; }
+  .detail-actions .btn-wish-detail { width: 100%; height: 46px; }
+  .swatch { padding: 8px 12px; font-size: 12px; }
+  .detail-short { font-size: 14px; }
+  .related-section { padding: 28px 0; }
+  .related-title { font-size: 18px; margin-bottom: 16px; }
+}

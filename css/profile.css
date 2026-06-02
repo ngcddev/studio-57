@@ -243,3 +243,37 @@
 .btn-remove-wish:hover { opacity: .6; }
 
 .profile-empty { color: var(--ink-3); font-size: 14px; padding: 14px 0; }
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  /* ── Auth ─────────────────────────────────────────────────── */
+  .auth-page { padding: 32px 18px 60px; }
+  .auth-box-brand { font-size: 22px; }
+  .auth-box-tag { font-size: 12px; margin-bottom: 22px; }
+  .auth-tab { font-size: 12px; padding: 11px; }
+
+  /* ── Perfil ───────────────────────────────────────────────── */
+  .profile-page { padding: 16px 0 60px; }
+  .profile-page > h1 { font-size: 26px; }
+  .profile-greeting { font-size: 13px; margin-bottom: 20px; }
+
+  .profile-section { padding: 16px; margin-bottom: 12px; }
+  .profile-section h2 { font-size: 15px; margin-bottom: 14px; }
+
+  /* ── Pedidos ──────────────────────────────────────────────── */
+  .order-card { padding: 14px; }
+  .order-card-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .order-card-meta { gap: 10px; font-size: 12px; }
+  .order-card-items { font-size: 12px; }
+
+  /* ── Wishlist ─────────────────────────────────────────────── */
+  .wishlist-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .wish-name { font-size: 12px; }
+  .wish-price { font-size: 11px; }
+}

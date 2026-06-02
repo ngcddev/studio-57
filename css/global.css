@@ -571,3 +571,57 @@ footer {
   transition: color .2s;
 }
 .sec-hd .sec-all:hover { color: var(--ink); }
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+/* ── Header ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    padding: 0 16px;
+    height: 54px;
+  }
+  .header-left { display: none; }
+  .header-brand { text-align: left; font-size: 17px; }
+  .header-right { gap: 2px; }
+  .icon-btn { width: 34px; height: 34px; }
+  .icon-btn svg { width: 17px; height: 17px; }
+}
+
+/* ── Barra de búsqueda ──────────────────────────────────────── */
+@media (max-width: 600px) {
+  .search-bar .container { gap: 10px; }
+  .search-bar input { font-size: 16px; }
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero-sub {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .hero-strip { height: 200px; }
+  .hero-split { gap: 20px; }
+  .hero-split-body h3 { margin-bottom: 10px; }
+  .hero-split-body p { margin-bottom: 16px; }
+}
+
+/* ── Secciones ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .sec { padding: 28px 0; }
+  .sec-hd { margin-bottom: 16px; gap: 12px; }
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .footer-main { padding: 36px 0 28px; }
+  .footer-brand-studio { font-size: 30px; }
+  .footer-brand-57 { font-size: 50px; }
+  .footer-col a { font-size: 14px; }
+  .footer-bottom-inner { font-size: 9px; gap: 4px; }
+  .footer-tagline { display: none; }
+}
