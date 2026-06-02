@@ -38,6 +38,7 @@ function renderHomeCard(product) {
       <a href="product.php?id=${product.id}">
         <div class="card-image-wrap">
           ${imgSrc}
+          <span class="badge-new">New</span>
         </div>
         <div class="card-body">
           <span class="category-tag">${product.category || ''}</span>
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const products = await getProducts({ sort: 'newest' });
-    const newest   = products.slice(0, 4);
+    const newest   = products.slice(0, 5);
     if (!newest.length) {
       grid.closest('section')?.remove();
       return;

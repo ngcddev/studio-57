@@ -78,16 +78,36 @@ $canonical  = $base_url . '/product.php' . ($product_id ? '?id=' . $product_id :
   </section>
 
   <footer>
-    <div class="container">
-      <span class="footer-brand">Studio 57</span>
-      <nav class="footer-nav" aria-label="Navegación del pie">
-        <a href="index.php">Inicio</a>
-        <a href="catalog.php">Catálogo</a>
-        <a href="catalog.php?gender=hombre">Hombre</a>
-        <a href="catalog.php?gender=mujer">Mujer</a>
-        <a href="cart.php">Carrito</a>
-      </nav>
-      <span>© 2026 Studio 57 — Popayán, Colombia</span>
+    <div class="footer-main">
+      <div class="container footer-main-inner">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <span class="footer-brand-studio">Studio</span>
+            <span class="footer-brand-57">57</span>
+          </div>
+        </div>
+        <nav class="footer-col">
+          <span class="footer-col-title">Tienda</span>
+          <a href="catalog.php">Todo</a>
+          <a href="catalog.php?gender=hombre">Hombre</a>
+          <a href="catalog.php?gender=mujer">Mujer</a>
+          <a href="catalog.php?sort=newest">Novedades</a>
+        </nav>
+        <nav class="footer-col">
+          <span class="footer-col-title">Casa</span>
+          <a href="#">Sobre Studio 57</a>
+          <a href="#">Envíos y cambios</a>
+          <a href="#">Guía de tallas</a>
+          <a href="#">Contacto</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© 2026 Studio 57 · Bogotá, Colombia</span>
+        <a href="admin/login.php" class="footer-admin">Panel Admin</a>
+        <span class="footer-tagline">Conectamos dos mundos, una moda</span>
+      </div>
     </div>
   </footer>
 

@@ -297,26 +297,106 @@ footer {
   color: var(--bg);
   margin-top: auto;
 }
-footer .container,
-footer .wrap {
+.footer-main {
+  padding: clamp(48px, 7vw, 88px) 0 clamp(40px, 5vw, 64px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.footer-main-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.footer-brand-col { display: flex; }
+.footer-brand {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  display: flex;
+  flex-direction: column;
+}
+.footer-brand-studio {
+  font-size: clamp(38px, 5.5vw, 72px);
+  color: var(--bg);
+}
+.footer-brand-57 {
+  font-size: clamp(64px, 10vw, 130px);
+  color: var(--clay-soft);
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+.footer-col-title {
+  font-family: var(--display);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--clay-soft);
+  margin-bottom: 6px;
+}
+.footer-col a {
+  color: rgba(231,225,215,0.65);
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  transition: color 0.18s;
+}
+.footer-col a:hover { color: var(--bg); }
+.footer-bottom { padding: 14px 0; }
+.footer-bottom-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
-  padding-top: 22px;
-  padding-bottom: 22px;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: rgba(231, 225, 215, .5);
-}
-footer .footer-brand {
-  font-family: var(--display);
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  font-size: 18px;
-  letter-spacing: 0.04em;
-  color: #fff;
+  color: rgba(231,225,215,0.35);
+}
+.footer-admin {
+  color: rgba(231,225,215,0.35);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  transition: color 0.18s;
+}
+.footer-admin:hover { color: var(--bg); }
+.footer-tagline {
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: rgba(231,225,215,0.35);
+}
+@media (max-width: 760px) {
+  .footer-main-inner { grid-template-columns: 1fr 1fr; }
+  .footer-brand-col  { grid-column: 1 / -1; }
+  .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (max-width: 480px) {
+  .footer-main-inner { grid-template-columns: 1fr; }
+}
+
+/* ── Badge NEW ───────────────────────────────────────────────── */
+.badge-new {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--display);
+  font-size: 10px;
   font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 2px;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* ── Hero (index.html) ──────────────────────────────────────── */
