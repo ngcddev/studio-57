@@ -69,14 +69,20 @@
     if (password !== confirm){ errorEl.textContent = 'Las contraseñas no coinciden.'; return; }
 
     btn.disabled = true; btn.textContent = 'Creando cuenta…';
-    const { error } = await signUp(email, password, fullName);
+    const { data, error } = await signUp(email, password, fullName);
 
     if (error) {
       errorEl.textContent = error.message.includes('already registered')
         ? 'Este email ya está registrado.'
+        : error.message.includes('invalid')
+        ? 'Email inválido. Usa un correo real.'
         : 'Error al crear la cuenta.';
       btn.disabled = false; btn.textContent = 'Crear cuenta';
+    } else if (data?.session) {
+      // Confirmación de email desactivada — sesión activa de inmediato
+      window.location.href = getQueryParam('redirect') || 'profile.php';
     } else {
+      // Confirmación de email activada — pedir que revisen el correo
       formRegister.innerHTML = `<div class="auth-success">
         <p>✅ Cuenta creada. Revisa tu correo para confirmarla y luego
         <a href="auth.php">inicia sesión</a>.</p>
