@@ -185,7 +185,6 @@ $base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
         <span>© 2026 Studio 57 · Bogotá, Colombia</span>
-        <a href="admin/login.php" class="footer-admin">Panel Admin</a>
         <span class="footer-tagline">Conectamos dos mundos, una moda</span>
       </div>
     </div>
