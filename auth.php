@@ -5,8 +5,8 @@ $base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
   <meta charset="UTF-8">
+    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi cuenta — Studio 57</title>
   <meta name="robots" content="noindex, nofollow">
@@ -21,7 +21,6 @@ $base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
 </head>
 <body>
   <header class="site-header">
-    <meta name="google-site-verification" content="Uki3-zqQG_Qh86pj_dZ_4OLN7j06DCONZnkcgio12OU" />
     <nav class="header-left">
       <a href="catalog.php"               class="nav-cat" data-gender="">Todo</a>
       <a href="catalog.php?gender=hombre" class="nav-cat" data-gender="hombre">Hombre</a>
