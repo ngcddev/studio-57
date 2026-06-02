@@ -12,6 +12,7 @@ $base_url = $protocol . '://' . $_SERVER['HTTP_HOST'];
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="<?= $base_url ?>/profile.php">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preload" href="css/fonts/horizon.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

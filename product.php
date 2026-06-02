@@ -29,6 +29,7 @@ $canonical  = $base_url . '/product.php' . ($product_id ? '?id=' . $product_id :
   <meta name="twitter:title"       id="twitter-title"   content="Producto — Studio 57">
   <meta name="twitter:image"       id="twitter-image"   content="">
 
+  <link rel="preload" href="css/fonts/horizon.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
