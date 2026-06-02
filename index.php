@@ -202,7 +202,7 @@ $og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <span>© 2026 Studio 57 · Bogotá, Colombia</span>
+        <span>© 2026 Studio 57 · Popayán, Colombia</span>
         <span class="footer-tagline">Conectamos dos mundos, una moda</span>
       </div>
     </div>

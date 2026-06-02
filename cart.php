@@ -101,7 +101,7 @@ $base_url  = $protocol . '://' . $_SERVER['HTTP_HOST'];
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <span>© 2026 Studio 57 · Bogotá, Colombia</span>
+        <span>© 2026 Studio 57 · Popayán, Colombia</span>
         <span class="footer-tagline">Conectamos dos mundos, una moda</span>
       </div>
     </div>
