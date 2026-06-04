@@ -83,7 +83,7 @@
   position: relative;
   aspect-ratio: 4/5;
   overflow: hidden;
-  background: var(--bg-2);
+  background: #fff;
 }
 .product-card .card-image-wrap img,
 .product-card .card-image-wrap .card-img-placeholder {
@@ -293,7 +293,7 @@
   width: 100%;
   object-fit: contain;
   border-radius: 3px;
-  background: var(--bg-2);
+  background: #fff;
 }
 .detail-image-placeholder {
   aspect-ratio: 4/5;
