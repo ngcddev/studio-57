@@ -148,14 +148,14 @@ $og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200
   <div class="container">
     <div class="hero-genders rv">
       <a href="catalog.php?gender=hombre" class="hero-gender-item">
-        <div class="hero-gender-img" style="background:linear-gradient(160deg,#c4b89a,#8a7e6a)"></div>
+        <div class="hero-gender-img" style="background-image:url('assets/img/hero-hombre.webp');background-size:cover;background-position:center"></div>
         <div class="hero-gender-label">
           <span>Hombre</span>
           <span>Camisetas, denim y abrigo</span>
         </div>
       </a>
       <a href="catalog.php?gender=mujer" class="hero-gender-item">
-        <div class="hero-gender-img" style="background:linear-gradient(160deg,#d4c4b4,#a8907a)"></div>
+        <div class="hero-gender-img" style="background-image:url('assets/img/hero-mujer.webp');background-size:cover;background-position:center"></div>
         <div class="hero-gender-label">
           <span>Mujer</span>
           <span>Punto, sastre y vestidos</span>
