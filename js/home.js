@@ -52,9 +52,43 @@ function renderHomeCard(product) {
 }
 
 /* ── Init ───────────────────────────────────────────────────── */
+/* ── Lookbook carousel ──────────────────────────────────────── */
+function initLookbook() {
+  const carousel = document.getElementById('lookbook-carousel');
+  if (!carousel) return;
+
+  const track   = carousel.querySelector('.lk-track');
+  const slides  = carousel.querySelectorAll('.lk-slide');
+  const prev    = carousel.querySelector('.lk-prev');
+  const next    = carousel.querySelector('.lk-next');
+  const total   = slides.length;
+  let current   = 0;
+  let timer;
+
+  function goTo(n) {
+    current = (n + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo(current + 1), 4000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  prev.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  next.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+  startAuto();
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   initHero();
   initReveal();
+  initLookbook();
 
   const grid = document.getElementById('home-new-grid');
   if (!grid) return;

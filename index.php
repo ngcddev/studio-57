@@ -115,7 +115,17 @@ $og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
-      <div class="hero-strip rv" id="hero-strip">
+      <div class="hero-strip rv" id="lookbook-carousel">
+        <div class="lk-track">
+          <div class="lk-slide" style="background-image:url('assets/img/lookbook/lb1.webp')"></div>
+          <div class="lk-slide" style="background-image:url('assets/img/lookbook/lb2.webp')"></div>
+          <div class="lk-slide" style="background-image:url('assets/img/lookbook/lb3.webp')"></div>
+          <div class="lk-slide" style="background-image:url('assets/img/lookbook/lb4.webp')"></div>
+          <div class="lk-slide" style="background-image:url('assets/img/lookbook/lb5.webp')"></div>
+          <div class="lk-slide" style="background-image:url('assets/img/lookbook/lb6.webp')"></div>
+        </div>
+        <button class="lk-arrow lk-prev" aria-label="Anterior">&#8592;</button>
+        <button class="lk-arrow lk-next" aria-label="Siguiente">&#8594;</button>
         <span class="hero-strip-label">Lookbook SS 2026</span>
       </div>
     </div>
