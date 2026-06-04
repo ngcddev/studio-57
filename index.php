@@ -135,7 +135,7 @@ $og_image  = $base_url . '/assets/og-cover.jpg'; // reemplaza con tu imagen 1200
   <!-- Editorial split -->
   <div class="container">
     <div class="hero-split rv">
-      <div class="hero-split-img"></div>
+      <div class="hero-split-img" style="background-image:url('assets/img/hero-split.webp');background-size:cover;background-position:center"></div>
       <div class="hero-split-body">
         <h3>Dos mundos,<br>una misma calle.</h3>
         <p>Studio 57 nace del cruce entre lo clásico y lo urbano. Cada prenda equilibra sastrería y comodidad, lo de siempre y lo que viene.</p>
