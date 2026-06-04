@@ -90,6 +90,16 @@ async function deleteProduct(id) {
   const { error } = await sb.from('products').delete().eq('id', id);
   if (error) console.error(error);
 }
+async function toggleIsNew(id, value) {
+  const { error } = await sb.from('products').update({ is_new: value }).eq('id', id);
+  if (error) { console.error(error); return false; }
+  return true;
+}
+async function getNewProducts() {
+  const { data, error } = await sb.from('products').select('*').eq('is_new', true);
+  if (error) { console.error(error); return []; }
+  return data;
+}
 async function getRelatedProducts(productId, category, limit = 4) {
   const { data, error } = await sb
     .from('products').select('*')

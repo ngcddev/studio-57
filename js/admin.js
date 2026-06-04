@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const varForm  = document.getElementById('variant-form');
 
     async function renderProducts() {
-      tbody.innerHTML = '<tr><td colspan="6">Cargando…</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7">Cargando…</td></tr>';
       const products = await getProducts();
       tbody.innerHTML = products.map(p => `
         <tr>
@@ -188,12 +188,25 @@ document.addEventListener('DOMContentLoaded', async () => {
           <td>${formatPrice(p.price)}</td>
           <td>${p.stock ?? '—'}</td>
           <td>
+            <button class="btn-toggle-new ${p.is_new ? 'is-new-on' : ''}" data-id="${p.id}" data-value="${p.is_new ? 'true' : 'false'}" title="${p.is_new ? 'Quitar de Novedades' : 'Agregar a Novedades'}">
+              ${p.is_new ? '★' : '☆'}
+            </button>
+          </td>
+          <td>
             <button class="btn-edit"     data-id="${p.id}">Editar</button>
             <button class="btn-variants" data-id="${p.id}" data-name="${p.name}">Variantes</button>
             <button class="btn-delete"   data-id="${p.id}">Eliminar</button>
           </td>
         </tr>
       `).join('');
+
+      tbody.querySelectorAll('.btn-toggle-new').forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const newVal = btn.dataset.value !== 'true';
+          const ok = await toggleIsNew(Number(btn.dataset.id), newVal);
+          if (ok) renderProducts();
+        });
+      });
 
       tbody.querySelectorAll('.btn-edit').forEach(btn => {
         btn.addEventListener('click', () => openProductModal(Number(btn.dataset.id), products));

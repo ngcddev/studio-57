@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!grid) return;
 
   try {
-    const products = await getProducts({ sort: 'newest' });
+    const products = await getNewProducts();
     const newest   = products.slice(0, 5);
     if (!newest.length) {
       grid.closest('section')?.remove();

@@ -36,6 +36,7 @@
             <th>Categoría</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Novedad</th>
             <th>Acciones</th>
           </tr>
         </thead>

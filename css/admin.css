@@ -234,6 +234,20 @@
 }
 .btn-delete:hover { background: rgba(217,104,95,.12); }
 
+/* novedad toggle */
+.btn-toggle-new {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: var(--a-dim);
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color .15s, background .15s;
+}
+.btn-toggle-new:hover { background: rgba(255,255,255,.07); }
+.btn-toggle-new.is-new-on { color: #f5c542; }
+
 /* status select */
 .status-select {
   background: #262420;
